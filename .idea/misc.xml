@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_login.xml" value="0.2388888888888889" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_main_extra_info_owner.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_main_extra_info_walker.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_owner_dashboard.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_owner_dog_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_owner_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_walker_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoof/app/src/main/res/layout/activity_walker_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_main_extra_info_owner.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_owner_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_owner_dog_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_walker_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_walker_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_accept_decline.xml" value="0.25" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_date_time.xml" value="0.25" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_faq.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_faq1.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_list_services.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_list_services_element.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_main_extra_info_owner.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_my_dog_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_my_dog_list_element.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_notifications.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_notifications_element.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_owner_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_owner_dog_profile.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_search_walkers.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_search_walkers_element.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_select_walker.xml" value="0.27291666666666664" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_select_walker_for_service.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_walker_dashboard.xml" value="0.25" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_walker_profile.xml" value="0.175" />
+        <entry key="..\:/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_walkers_list_element.xml" value="0.175" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_accept_decline.xml" value="0.176" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_accept_decline_service.xml" value="0.1875" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq1.xml" value="0.2359375" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq2.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq3.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq4.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq5.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq6.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_faq7.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_list_services.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_list_services_element.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_main_extra_info_owner.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_main_extra_info_walker.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_my_dog_list.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_my_dog_list_element.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_notifications.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_notifications_element.xml" value="0.2359375" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_owner_dashboard.xml" value="0.264" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_owner_dog_profile.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_owner_profile.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_registration.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_search_walkers.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_search_walkers_element.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_select_walker.xml" value="0.2359375" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_walker_dashboard.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_walker_details.xml" value="0.16979166666666667" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV2 (1)/MyApplicationScoobyWoofV2/app/src/main/res/layout/activity_walker_profile.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_faq6.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Desktop/Semester6/MyApplicationScoobyWoofV3/MyApplicationScoobyWoofV3/app/src/main/res/layout/activity_my_dog_list.xml" value="0.25" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2555" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_login.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_main_extra_info_owner.xml" value="0.175" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_main_extra_info_walker.xml" value="0.152" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_owner_dashboard.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_owner_dog_profile.xml" value="0.18125" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_owner_profile.xml" value="0.2" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_registration.xml" value="0.176" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_walker_dashboard.xml" value="0.16770833333333332" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/activity_walker_profile.xml" value="0.1671875" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/grid_item.xml" value="0.1" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/layout/login.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2525" />
+        <entry key="..\:/Users/gatos/Documents/PhilPC/VIDEOS2/MyApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2525" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "232644859844",
+    "firebase_url": "https://scoobywoof-default-rtdb.firebaseio.com",
+    "project_id": "scoobywoof",
+    "storage_bucket": "scoobywoof.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232644859844:android:24533cf20e8235859cf691",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232644859844-ajovb48go0mmerlssm7obnalrfp32jmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZJy4MteklcU8KudMFfDmeq1BN-o3f7gY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232644859844-ajovb48go0mmerlssm7obnalrfp32jmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

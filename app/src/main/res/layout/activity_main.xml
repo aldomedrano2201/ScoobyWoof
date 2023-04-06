@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout android:orientation="vertical" android:background="@drawable/dogautumn" android:layout_width="match_parent" android:layout_height="30dp">
+
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="50dp"
+                android:src="@drawable/wall1" />
+
+            <ImageView
+                android:layout_width="140sp"
+                android:layout_height="140sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/scoobypaw" />
+
+            <TextView
+                android:id="@+id/textScooby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="40sp"
+                android:text="SCOOBY"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textWoof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="70dp"
+                android:text="WOOF"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textPaws1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="110dp"
+                android:text="Happy Paws Always"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="210dp"
+                android:layout_marginTop="480dp"
+                android:alpha="0.7"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:text="JOIN US"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/textPaws3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="530dp"
+                android:text="Because your buddy deserves the best."
+                android:textColor="@android:color/white"
+                android:textSize="40sp"
+                android:textStyle="italic"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnLogin"
+                 />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="350dp"
+                android:src="@drawable/wall2" />
+
+            <TextView
+                android:id="@+id/textWoof8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="980dp"
+                android:layout_marginRight="20dp"
+                android:text="Why become a Woof Walker"
+                android:textColor="@android:color/white"
+                android:textSize="38sp"
+                android:textStyle="bold"
+
+
+                />
+
+            <TextView
+                android:id="@+id/textWoof81"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1100dp"
+                android:layout_marginRight="10dp"
+                android:text="Benefits of becoming a Woof Walker"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="italic"
+
+
+                />
+
+            <Button
+                android:id="@+id/btnWhyBecomeWoofWalker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1160dp"
+                android:alpha="0.8"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:text="more Info..."
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+
+                app:cardCornerRadius="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="1270dp"
+                android:src="@drawable/wall3" />
+
+            <TextView
+                android:id="@+id/textWoof9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1400dp"
+                android:layout_marginRight="20dp"
+                android:text="Why trust in ScoobyWoof"
+                android:textColor="@android:color/white"
+                android:textSize="38sp"
+                android:textStyle="bold"
+
+
+                />
+
+            <TextView
+                android:id="@+id/textWoof91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1520dp"
+                android:layout_marginRight="10dp"
+                android:text="Your buddy is important to us too"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="italic"
+
+
+                />
+
+            <Button
+                android:id="@+id/btnWhyTrustScoobyWoof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="1580dp"
+                android:alpha="0.8"
+                android:backgroundTint="@android:color/holo_orange_dark"
+                android:text="more Info..."
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/footer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1700dp"
+                android:layout_marginRight="10dp"
+                android:text="2000 Saint-Catherine St W, Montreal, Quebec H3H 2T2 \n\n\n\n\n ScoobyWoof Inc. \n 2023"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+
+
+                />
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</ScrollView>

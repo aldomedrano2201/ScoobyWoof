@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/scooby_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/scooby_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApplication"
+        tools:targetApi="31">
+        <activity
+            android:name=".SelectWalkerForServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DateTimeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq7Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq6Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq5Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq4Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Faq1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AcceptDeclineActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListServicesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchWalkersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyDogListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainExtraInfoWalkerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WalkerProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".WalkerDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainExtraInfoOwnerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerDogProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".OwnerDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

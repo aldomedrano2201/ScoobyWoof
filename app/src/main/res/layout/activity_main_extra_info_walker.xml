@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainExtraInfoWalkerActivity">
+
+    <LinearLayout android:orientation="vertical" android:background="@drawable/dogautumn_sec" android:layout_width="match_parent" android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+
+                android:layout_width="match_parent"
+                android:layout_height="300sp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="230dp"
+                android:src="@drawable/walkperro1" />
+
+            <ImageView
+                android:layout_width="140sp"
+                android:layout_height="140sp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/scoobypaw" />
+
+            <TextView
+                android:id="@+id/textScooby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="170dp"
+                android:layout_marginTop="40sp"
+                android:text="SCOOBY"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textWoof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="230dp"
+                android:layout_marginTop="70dp"
+                android:text="WOOF"
+                android:textColor="@android:color/black"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/textPaws1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:layout_marginTop="110dp"
+                android:text="Happy Paws Always"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textBenefitsWalker1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="190dp"
+                android:text="Why become a Woof Walker?"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="30sp"
+                android:textStyle="italic|bold"
+                app:layout_constraintLeft_toLeftOf="parent" />
+
+            <TextView
+                android:id="@+id/textBenefitsParagraph"
+                android:layout_width="match_parent"
+                android:layout_height="180sp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="550sp"
+                android:layout_marginRight="1dp"
+                android:background="@drawable/white_orange3"
+                android:text="Benefits on health include:\n - Improved cardiovascular fitness \n- Lower blood pressure \n- Stronger muscles and bones \n- Decreased stress "
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/textWoof8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1050dp"
+                android:layout_marginRight="20dp"
+                android:text="Earn some money having the best companionship"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textWoof84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="750dp"
+                android:layout_marginRight="10dp"
+                android:text="There are many enticing reasons to get involved. This booming sector has a huge audience of potential customers, many of whom place a high priority on their pet's well-being. It also offers the possibility of financial success, and the satisfaction that comes from pursuing a personal passion."
+                android:textColor="@android:color/white"
+                android:textSize="21sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textWoof81"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1190dp"
+                android:layout_marginRight="20dp"
+                android:text="You can get an average of $3,300 per month"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+
+
+            <View
+                android:id="@+id/lineSpace1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FF9800"
+                android:layout_marginTop="1285dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                />
+
+            <TextView
+                android:id="@+id/footer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="1300dp"
+                android:layout_marginRight="10dp"
+                android:text="2000 Saint-Catherine St W, Montreal, Quebec H3H 2T2 \n\n\n\n ScoobyWoof Inc. \n 2023"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
