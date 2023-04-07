@@ -72,41 +72,18 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
 
     private void loadDBData() {
 
-
-
-            request = requestList.get(itemRequestIndex);
-            getUserInfo();
-
-
-
+        request = requestList.get(itemRequestIndex);
+        getUserAmdDogInfoFromDB();
 
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-
-            case R.id.btnBackToDashboard:
-                Intent intent
-                        = new Intent(getApplicationContext(),WalkerDashboardActivity.class);
-                intent.putExtra("userId",userIdValue);
-                startActivity(intent);
-                break;
 
 
 
-        }
-    }
 
-
-
-    private void getUserInfo() {
-        DatabaseReference dbRef = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users))
-                .child(request.getDogOwnerId());
-
-        dbRef.addListenerForSingleValueEvent(this);
+    private void getUserAmdDogInfoFromDB() {
+        Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),request.getDogOwnerId())
+                .addListenerForSingleValueEvent(this);
     }
 
 
@@ -147,14 +124,8 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
                 snapshot.child("lastName").getValue().toString(),
                 snapshot.child("email").getValue().toString(),
                 snapshot.child(Util.nodeValues.DogOwner.toString()).child("phoneNumber").getValue().toString());
-
-        DatabaseReference dbRef = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Dog))
-                .child(request.getDogOwnerId())
-                .child(request.getDogId());
-
-        dbRef.addValueEventListener(new ValueEventListener() {
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Dog.toString(),request.getDogOwnerId(),request.getDogId())
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -165,7 +136,7 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
                             dog.getId(), dog.getName(), dog.getDescription(), request));
                     try{
                         request = requestList.get(++itemRequestIndex);
-                        getUserInfo();
+                        getUserAmdDogInfoFromDB();
                     }catch (Exception e){
                         setupRequestListListener();
                     }
@@ -183,5 +154,19 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onCancelled(@NonNull DatabaseError error) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+
+            case R.id.btnBackToDashboard:
+                Intent intent
+                        = new Intent(getApplicationContext(),WalkerDashboardActivity.class);
+                intent.putExtra("userId",userIdValue);
+                startActivity(intent);
+                break;
+
+        }
     }
 }

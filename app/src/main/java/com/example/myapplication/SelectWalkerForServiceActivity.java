@@ -37,10 +37,6 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
     ImageView imgWalker;
     Button btnCreateDogWalkingRequest, btnSelectDatetime, btnBackDogList;
     TextView txtName, txtEmail, txtDescription, txtRate, txtPhoneNumber, textDateTime;
-
-    DatabaseReference databaseReference;
-    FirebaseStorage storage;
-    StorageReference storageReference;
     boolean isCalendarObject = true;
 
     String dogWalkerId, dateTimeString;
@@ -69,8 +65,6 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
         txtDescription = findViewById(R.id.textDescription);
         txtPhoneNumber = findViewById(R.id.textPhone);
         textDateTime = findViewById(R.id.textDateTime);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
         txtName.setText(getIntent().getStringExtra("name"));
         txtEmail.setText(getIntent().getStringExtra("email"));
         txtDescription.setText(getIntent().getStringExtra("description"));
@@ -87,12 +81,9 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
 
     private void loadDogWalkerImage() {
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference photoReference= storageReference.child(Util.imageFolders.DogWalkersImages  + "/" +
-                dogWalkerId);
-
         final long ONE_MEGABYTE = 1024 * 1024;
-        photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),dogWalkerId)
+                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -157,10 +148,10 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
     }
 
     private void createRequest(){
-        FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Requests))
-                .child(request.getId()).setValue(request)
+
+        Util.setNodeAndChildDatabaseReference(Util.nodeValues.Requests.toString(),
+                        request.getId())
+                .setValue(request)
                 .addOnCompleteListener(this);
     }
 

@@ -2,9 +2,7 @@ package model;
 
 import androidx.annotation.NonNull;
 
-import interfaces.GetClassesProperties;
-
-public class UserInfo implements GetClassesProperties {
+public class UserInfo{
 
     protected String firstName;
     protected String lastName;
@@ -71,19 +69,6 @@ public class UserInfo implements GetClassesProperties {
     public String getUserType() {return userType;}
     public void setUserType(String userType) {this.userType = userType;}
 
-    @Override
-    public String name() {
-        return firstName + " " + lastName;
-    }
 
-    @Override
-    public String dogName() {
-        return null;
-    }
-
-    @Override
-    public String id() {
-        return null;
-    }
 }
 

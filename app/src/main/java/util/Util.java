@@ -4,12 +4,19 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.File;
 import java.io.FileOutputStream;
 
 public class Util {
 
+    static DatabaseReference dbRef;
 
+    static StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
     public enum nodeValues {
 
@@ -90,6 +97,36 @@ public class Util {
         if (file.exists ()) file.delete ();
     }
 
+    public static DatabaseReference setNodeDatabaseReference(String nodeValue){
+        dbRef = FirebaseDatabase
+                .getInstance()
+                .getReference(String.valueOf(nodeValue));
+        return dbRef;
+    }
 
+    public static DatabaseReference setNodeAndChildDatabaseReference(String nodeValue, String childNodeValue){
+        dbRef = FirebaseDatabase
+                .getInstance()
+                .getReference(String.valueOf(nodeValue));
+        dbRef.child(childNodeValue);
+        return dbRef;
+    }
+
+    public static DatabaseReference setNodeAndChildrenDatabaseReference(String nodeValue, String childNodeValue1,
+                                                                        String childNodeValue2){
+        dbRef = FirebaseDatabase
+                .getInstance()
+                .getReference(String.valueOf(nodeValue))
+                .child(childNodeValue1)
+                .child(childNodeValue2);
+        return dbRef;
+    }
+
+    public static StorageReference setStorageReference(String folderImages, String photoId){
+
+        StorageReference photoReference= storageReference.child(folderImages  + "/" +
+                photoId);
+        return photoReference;
+    }
 
 }

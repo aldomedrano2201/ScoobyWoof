@@ -34,8 +34,6 @@ public class MyDogListActivity extends AppCompatActivity implements View.OnClick
     GenericAdapter adapter;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +60,6 @@ public class MyDogListActivity extends AppCompatActivity implements View.OnClick
 
         if (lvGenericlist.getCount() == 0){
             dogsList.clear();
-            DatabaseReference dbRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(String.valueOf(Util.nodeValues.Dog))
-                    .child(userIdValue);
             ValueEventListener listener= new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
@@ -93,7 +87,8 @@ public class MyDogListActivity extends AppCompatActivity implements View.OnClick
 
 
             };
-            dbRef.addListenerForSingleValueEvent(listener);
+            Util.setNodeAndChildDatabaseReference(Util.nodeValues.Dog.toString(),userIdValue)
+                    .addListenerForSingleValueEvent(listener);
 
         }
 

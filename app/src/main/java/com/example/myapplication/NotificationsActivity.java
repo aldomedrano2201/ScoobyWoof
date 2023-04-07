@@ -51,11 +51,8 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
 
     private void loadDBData() {
         requestsList.clear();
-        DatabaseReference dbRef = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Requests));
-
-        dbRef.addListenerForSingleValueEvent(this);
+        Util.setNodeDatabaseReference(Util.nodeValues.Requests.toString())
+                .addListenerForSingleValueEvent(this);
     }
 
     @Override

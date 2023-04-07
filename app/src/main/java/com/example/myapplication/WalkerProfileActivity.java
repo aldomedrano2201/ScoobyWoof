@@ -36,7 +36,6 @@ import util.Util;
 
 public class WalkerProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
-    DatabaseReference databaseReference;
     Button btnSaveProfile, btnBackDashboardWalker;
     EditText edRate, edPhoneNumber, edDescription;
     TextView txtName, txtEmail;
@@ -72,12 +71,6 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
         name = getIntent().getStringExtra("name");
         email = getIntent().getStringExtra("email");
 
-
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
-
-
         txtName.setText(name);
         txtEmail.setText(email);
 
@@ -88,13 +81,8 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
 
     private void checkProfile() {
 
-
-
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-        DatabaseReference dogWalkerInfo = databaseReference.child(userIdValue).child(Util.nodeValues.DogWalker.toString());
-        dogWalkerInfo.addListenerForSingleValueEvent(new ValueEventListener() {
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString(),userIdValue,Util.nodeValues.DogWalker.toString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -103,12 +91,9 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
                     edRate.setText(snapshot.child("rate").getValue().toString());
                     edDescription.setText(snapshot.child("description").getValue().toString());
 
-                    StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                    StorageReference photoReference= storageReference.child(Util.imageFolders.DogWalkersImages  + "/" +
-                            userIdValue);
-
                     final long ONE_MEGABYTE = 1024 * 1024;
-                    photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),userIdValue)
+                            .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                         @Override
                         public void onSuccess(byte[] bytes) {
                             Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -173,13 +158,12 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
 
     private void saveProfile() {
 
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
         DogWalker dogWalker = new DogWalker( 0.0,0.0,false, 1,
                 edPhoneNumber.getText().toString().trim(),edDescription.getText().toString(),
                 Double.valueOf(edRate.getText().toString().trim()));
-        databaseReference.child(userIdValue).child(Util.nodeValues.DogWalker.toString()).setValue(dogWalker)
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString()
+                        ,userIdValue
+                        ,Util.nodeValues.DogWalker.toString()).setValue(dogWalker)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -231,9 +215,8 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
-                //String UUIDVal = UUID.randomUUID().toString();
-                StorageReference ref = storageReference.child(Util.imageFolders.DogWalkersImages + "/" + userIdValue);
-                ref.putFile(filePath)
+                Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),userIdValue)
+                        .putFile(filePath)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

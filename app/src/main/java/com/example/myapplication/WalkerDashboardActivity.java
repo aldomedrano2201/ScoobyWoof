@@ -40,7 +40,7 @@ import util.Util;
 public class WalkerDashboardActivity extends AppCompatActivity implements ValueEventListener, View.OnClickListener{
 
     String userIdValue;
-    DatabaseReference databaseReference;
+
     Button btnCompleteWalkerProfile, btnNotifications,
             btnAcceptDeclineService, btnLogOut;
     TextView txtName, txtEmail;
@@ -83,11 +83,8 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
     private void loadUserInfo() {
 
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-        DatabaseReference userInfo = databaseReference.child(userIdValue);
-        userInfo.addListenerForSingleValueEvent(new ValueEventListener() {
+        Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),userIdValue)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 txtEmail.setText(snapshot.child("email").getValue().toString());
@@ -106,20 +103,16 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
     }
 
     private void checkProfileCompleted() {
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
 
-
-        DatabaseReference dogWalkerInfo = databaseReference.child(userIdValue).child(Util.nodeValues.DogWalker.toString());
-        dogWalkerInfo.addListenerForSingleValueEvent(this);
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString()
+                        ,userIdValue
+                        ,Util.nodeValues.DogWalker.toString())
+                .addListenerForSingleValueEvent(this);
 
     }
 
     private void checkDogWalkingRequests() {
-        FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Requests))
+                Util.setNodeDatabaseReference(Util.nodeValues.Requests.toString())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -165,11 +158,10 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
     }
 
     private void upDateActivation() {
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-
-        databaseReference.child(userIdValue).child(Util.nodeValues.DogWalker.toString()).child("active").setValue(swActivation.isChecked())
+                Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString(),
+                                userIdValue,
+                                Util.nodeValues.DogWalker.toString())
+                        .child("active").setValue(swActivation.isChecked())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -214,12 +206,9 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
 
         }else{
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            StorageReference photoReference= storageReference.child(Util.imageFolders.DogWalkersImages  + "/" +
-                    userIdValue);
-            swActivation.setChecked((Boolean) snapshot.child("active").getValue());
             final long ONE_MEGABYTE = 1024 * 1024;
-            photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),userIdValue)
+                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);

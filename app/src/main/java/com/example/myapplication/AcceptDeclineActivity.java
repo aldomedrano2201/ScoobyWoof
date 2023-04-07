@@ -42,7 +42,6 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
             txtBreed, txtDogDescription, txtPickingTime;
     GenericClass genRequest;
     Request request;
-    DatabaseReference dbRef;
     int requestItemIndex = -1;
 
     @Override
@@ -83,11 +82,9 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
 
 
     private void loadDogWalkerImage() {
-        dbRef = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.DogOwner));
 
-        dbRef.addListenerForSingleValueEvent(this);
+        Util.setNodeDatabaseReference(Util.nodeValues.DogOwner.toString()).
+                addListenerForSingleValueEvent(this);
     }
 
     @Override
@@ -113,10 +110,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
 
     private void acknowledgeService(String statusRequest) {
         if (requestItemIndex > - 1){
-            dbRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(String.valueOf(Util.nodeValues.Requests));
-            dbRef.child(request.getId())
+            Util.setNodeAndChildDatabaseReference(Util.nodeValues.Requests.toString(),request.getId())
                     .child("status").setValue(statusRequest)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -148,10 +142,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
                     Util.notificationStatus.Unread.toString(),
                     statusRequest);
 
-            dbRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(String.valueOf(Util.nodeValues.Notifications));
-            dbRef.child(notification.getId())
+            Util.setNodeAndChildDatabaseReference(Util.nodeValues.Notifications.toString(),notification.getId())
                     .setValue(notification)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
@@ -189,12 +180,9 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            StorageReference photoReference= storageReference.child(Util.imageFolders.DogOwnersImages  + "/" +
-                    request.getDogOwnerId());
-
             final long ONE_MEGABYTE = 1024 * 1024;
-            photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),request.getDogOwnerId())
+                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -222,19 +210,15 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
 
 
     private void loadDogImage() {
-        DatabaseReference dbRef = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Dog));
 
-        dbRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        Util.setNodeDatabaseReference(Util.nodeValues.Dog.toString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                StorageReference photoReference= storageReference.child(Util.imageFolders.DogImages  + "/" +
-                        request.getDogId());
 
                 final long ONE_MEGABYTE = 1024 * 1024;
-                photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                Util.setStorageReference(Util.imageFolders.DogImages.toString(),request.getDogId())
+                        .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);

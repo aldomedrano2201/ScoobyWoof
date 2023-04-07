@@ -56,12 +56,9 @@ public class SearchWalkersActivity extends AppCompatActivity implements ValueEve
     private void loadDBData() {
 
 
-            walkersList.clear();
-            DatabaseReference dbRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(String.valueOf(Util.nodeValues.Users));
-
-            dbRef.addListenerForSingleValueEvent(this);
+           walkersList.clear();
+           Util.setNodeDatabaseReference(Util.nodeValues.Users.toString())
+                    .addListenerForSingleValueEvent(this);
 
 
     }

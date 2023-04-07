@@ -2,10 +2,6 @@ package generics;
 
 import java.io.Serializable;
 
-import interfaces.GetClassesProperties;
-import model.Dog;
-import model.Request;
-
 public class GenericClass<T> implements Serializable {
     private T value;
     private String name;

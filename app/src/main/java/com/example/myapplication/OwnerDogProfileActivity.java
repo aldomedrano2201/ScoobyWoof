@@ -169,14 +169,12 @@ public class OwnerDogProfileActivity extends AppCompatActivity implements View.O
 
     private void saveProfile() {
 
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Dog));
         if (dogIdValue == null)
             dogIdValue = UUID.randomUUID().toString();
+
         dog = new Dog(dogIdValue,edDogName.getText().toString().trim(),edDogBreed.getText().toString(),
                         edDogBio.getText().toString().trim());
-        databaseReference.child(userIdValue).child(dogIdValue).setValue(dog)
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Dog.toString(),userIdValue,dogIdValue).setValue(dog)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -201,10 +199,8 @@ public class OwnerDogProfileActivity extends AppCompatActivity implements View.O
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
-                //String UUIDVal = UUID.randomUUID().toString();
-                StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                StorageReference ref = storageReference.child(Util.imageFolders.DogImages + "/" + dogIdValue);
-                ref.putFile(filePath)
+                Util.setStorageReference(Util.imageFolders.DogImages.toString(),dogIdValue)
+                        .putFile(filePath)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

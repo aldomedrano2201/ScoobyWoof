@@ -71,11 +71,8 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
 
     private void loadUserInfo() {
 
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-        DatabaseReference userInfo = databaseReference.child(userIdValue);
-        userInfo.addValueEventListener(new ValueEventListener() {
+        Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),userIdValue)
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 txtEmail.setText(snapshot.child("email").getValue().toString());
@@ -94,14 +91,11 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
     }
 
     private void checkProfileCompleted() {
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
 
-
-            DatabaseReference dogOwnerInfo = databaseReference.child(userIdValue).child(Util.nodeValues.DogOwner.toString());
-            dogOwnerInfo.addListenerForSingleValueEvent(this);
-
+        Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString()
+                        ,userIdValue
+                        ,Util.nodeValues.DogOwner.toString())
+                    .addListenerForSingleValueEvent(this);
 
     }
 
@@ -115,12 +109,9 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
             btnNotifications.setEnabled(false);
             btnRequestWalkingService.setEnabled(false);
         }else{
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            StorageReference photoReference= storageReference.child(Util.imageFolders.DogOwnersImages  + "/" +
-                    userIdValue);
-
             final long ONE_MEGABYTE = 1024 * 1024;
-            photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
+                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {
                     Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);

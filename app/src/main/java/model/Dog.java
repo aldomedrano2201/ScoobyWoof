@@ -1,8 +1,6 @@
 package model;
 
-import interfaces.GetClassesProperties;
-
-public class Dog implements GetClassesProperties {
+public class Dog {
     private String id;
     private String name;
     private String breed;
@@ -58,21 +56,4 @@ public class Dog implements GetClassesProperties {
     }
 
 
-
-
-
-    @Override
-    public String name() {
-        return null;
-    }
-
-    @Override
-    public String dogName() {
-        return name;
-    }
-
-    @Override
-    public String id() {
-        return id;
-    }
 }

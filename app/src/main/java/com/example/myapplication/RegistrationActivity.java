@@ -172,8 +172,9 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void addRegister(UserInfo userInfo) {
-
-        databaseReference.child(mAuth.getCurrentUser().getUid()).setValue(userInfo)
+                Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),
+                                mAuth.getCurrentUser().getUid())
+                        .setValue(userInfo)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

@@ -27,10 +27,6 @@ public class SelectWalkerActivity extends AppCompatActivity implements View.OnCl
     ImageView imgWalker;
     Button btnCreateDogWalkingRequest, btnSelectDatetime;
     TextView txtName, txtEmail, txtDescription, txtRate, txtPhoneNumber, textDateTime;
-
-    DatabaseReference databaseReference;
-    FirebaseStorage storage;
-    StorageReference storageReference;
     boolean isCalendarObject = true;
 
     String dogWalkerId, dateTimeString;
@@ -55,8 +51,6 @@ public class SelectWalkerActivity extends AppCompatActivity implements View.OnCl
         txtDescription = findViewById(R.id.textDescription);
         txtPhoneNumber = findViewById(R.id.textPhone);
         textDateTime = findViewById(R.id.textDateTime);
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
         txtName.setText(getIntent().getStringExtra("name"));
         txtEmail.setText(getIntent().getStringExtra("email"));
         txtDescription.setText(getIntent().getStringExtra("description"));
@@ -77,12 +71,9 @@ public class SelectWalkerActivity extends AppCompatActivity implements View.OnCl
 
     private void loadDogWalkerImage() {
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-        StorageReference photoReference= storageReference.child(Util.imageFolders.DogWalkersImages  + "/" +
-                dogWalkerId);
-
         final long ONE_MEGABYTE = 1024 * 1024;
-        photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),dogWalkerId)
+                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);

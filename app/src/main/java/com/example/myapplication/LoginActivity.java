@@ -119,13 +119,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void goToActivityProfile() {
 
-
-
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-        DatabaseReference userChild = databaseReference.child(mAuth.getCurrentUser().getUid());
-        userChild.addValueEventListener(this);
+        Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),mAuth.getCurrentUser().getUid())
+                .addValueEventListener(this);
 
     }
 

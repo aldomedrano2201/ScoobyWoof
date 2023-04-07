@@ -94,13 +94,10 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
 
     private void checkProfile() {
 
-
-
-            databaseReference = FirebaseDatabase
-                    .getInstance()
-                    .getReference(String.valueOf(Util.nodeValues.Users));
-            DatabaseReference dogOwnerInfo = databaseReference.child(userIdValue).child(Util.nodeValues.DogOwner.toString());
-            dogOwnerInfo.addListenerForSingleValueEvent(new ValueEventListener() {
+              Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString(),
+                      userIdValue,
+                      Util.nodeValues.DogOwner.toString())
+                      .addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     if(snapshot.getChildrenCount()!=0){
@@ -109,12 +106,10 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
                         edAddress.setText(snapshot.child("address").getValue().toString());
                         edDescription.setText(snapshot.child("description").getValue().toString());
 
-                        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-                        StorageReference photoReference= storageReference.child(Util.imageFolders.DogOwnersImages  + "/" +
-                                userIdValue);
 
                         final long ONE_MEGABYTE = 1024 * 1024;
-                        photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                        Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
+                                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                             @Override
                             public void onSuccess(byte[] bytes) {
                                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
@@ -178,15 +173,13 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void saveProfile() {
-
-        databaseReference = FirebaseDatabase
-                .getInstance()
-                .getReference(String.valueOf(Util.nodeValues.Users));
-
-                        
         DogOwner dogOwner = new DogOwner(edAddress.getText().toString().trim(),
                 edPhoneNumber.getText().toString().trim(),edDescription.getText().toString());
-                databaseReference.child(userIdValue).child(Util.nodeValues.DogOwner.toString()).setValue(dogOwner)
+
+                Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Users.toString(),
+                                userIdValue,
+                                Util.nodeValues.DogOwner.toString())
+                        .setValue(dogOwner)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -238,9 +231,8 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
                 final ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setTitle("Uploading...");
                 progressDialog.show();
-                //String UUIDVal = UUID.randomUUID().toString();
-                StorageReference ref = storageReference.child(Util.imageFolders.DogOwnersImages + "/" + userIdValue);
-                ref.putFile(filePath)
+                Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
+                        .putFile(filePath)
                         .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
