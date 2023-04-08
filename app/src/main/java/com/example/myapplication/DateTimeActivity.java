@@ -13,6 +13,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.lang.reflect.Field;
+import java.util.Calendar;
 
 public class DateTimeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -30,11 +31,19 @@ public class DateTimeActivity extends AppCompatActivity implements View.OnClickL
 
     private void initialize() {
 
-        datePicker = findViewById(R.id.date_picker);
+
         timePicker = findViewById(R.id.time_picker);
-        datePicker.setVisibility(View.INVISIBLE);
         timePicker.setVisibility(View.INVISIBLE);
 
+        datePicker = findViewById(R.id.date_picker);
+        datePicker.setVisibility(View.INVISIBLE);
+
+        // Set the minimum date to today's date
+        Calendar calendar = Calendar.getInstance();
+        datePicker.setMinDate(calendar.getTimeInMillis());
+
+        // Disable past dates
+        datePicker.setMinDate(System.currentTimeMillis() - 1000);
 
         btnSaveDateTime = findViewById(R.id.btnSaveChangesDateTime);
         btnSaveDateTime.setOnClickListener(this);

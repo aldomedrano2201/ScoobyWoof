@@ -206,6 +206,7 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
 
         }else{
+            swActivation.setChecked((boolean)snapshot.child("active").getValue());
             final long ONE_MEGABYTE = 1024 * 1024;
             Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),userIdValue)
                     .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,286 +7,350 @@
     tools:context=".SelectWalkerActivity"
     android:background="@drawable/white_orange">
 
-    <Button
-        android:id="@+id/btnBackToDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:alpha="0.9"
-        android:backgroundTint="@android:color/transparent"
-        android:drawableLeft="@drawable/icon_back"
-        android:stateListAnimator="@null"
-        android:text="."
-        android:textAllCaps="false"
-        android:inputType="phone"
-        android:textSize="1sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
-
-    <TextView
-        android:id="@+id/textRequestedService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="20dp"
-        android:text="ScoobyWoof Request"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/btnBackToDashboard"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgPicOwner"
-        android:layout_width="150sp"
-        android:layout_height="150sp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/user_default"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/btnBackToDashboard"
-        android:thicknessRatio="1.9"/>
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgPicDog"
-        android:layout_width="150sp"
-        android:layout_height="150sp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/scoobydoosilhouette"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/btnBackToDashboard"
-        android:thicknessRatio="1.9"/>
-
-    <TextView
-        android:id="@+id/textOwnerName"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="1sp"
-        android:text="Jaina Manik"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
+        android:orientation="vertical">
 
-        app:layout_constraintTop_toBottomOf="@+id/imgPicOwner"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textDogName"
+            <Button
+                android:id="@+id/btnBackToDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20sp"
+                android:alpha="0.9"
+                android:backgroundTint="@android:color/transparent"
+                android:drawableLeft="@drawable/icon_back"
+                android:stateListAnimator="@null"
+                android:text="."
+                android:textAllCaps="false"
+                android:inputType="phone"
+                android:textSize="1sp"
+
+
+                />
+
+            <TextView
+                android:id="@+id/textRequestedService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:text="ScoobyWoof Request"
+                android:textColor="@android:color/holo_orange_dark"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPicOwner"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:src="@drawable/user_default"
+                android:thicknessRatio="1.9"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgPicDog"
+                android:layout_width="150sp"
+                android:layout_height="150sp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/scoobydoosilhouette"
+                android:thicknessRatio="1.9"/>
+
+        </LinearLayout>
+
+
+
+
+
+
+
+        <TextView
+            android:id="@+id/textOwnerName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="1sp"
+            android:text="Jaina Manik"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+
+            app:layout_constraintTop_toBottomOf="@+id/imgPicOwner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/textDogName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="1dp"
+            android:text="Max"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/textOwnerName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+
+
+        <View
+            android:id="@+id/lineSpace1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FF9800"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintTop_toBottomOf="@id/textDogName"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="1dp"
-        android:text="Max"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/textOwnerName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:orientation="horizontal"
+        >
 
+        <TextView
+            android:id="@+id/lblAddress"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Address"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
+        <TextView
+            android:id="@+id/textAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="123 Elm Street"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
+            app:layout_constraintLeft_toRightOf="@id/lblAddress"
+            />
 
+    </LinearLayout>
 
-    <View
-        android:id="@+id/lineSpace1"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#FF9800"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        app:layout_constraintTop_toBottomOf="@id/textDogName"/>
-
-    <TextView
-        android:id="@+id/lblAddress"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Address"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/textAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="123 Elm Street"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
-        app:layout_constraintLeft_toRightOf="@id/lblAddress"
-        />
-
-
-    <TextView
-        android:id="@+id/lblBreed"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Breed:"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lblPhone"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/textBreed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-
-        android:text="Husky"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/lblBreed"
-        app:layout_constraintLeft_toRightOf="@id/lblBreed"
-        />
-
-    <TextView
-        android:id="@+id/lblPickingTime"
-        android:layout_width="150sp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Picking time:"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lblBreed"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/textPickingTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-        android:text="12:00"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/lblPickingTime"
-        app:layout_constraintLeft_toRightOf="@id/lblPickingTime"
-        />
-
-    <TextView
-        android:id="@+id/lblPhone"
-        android:layout_width="100sp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Phone:"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lblAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/textPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
-
-        android:text="438-222-333"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@+id/lblPhone"
-        app:layout_constraintLeft_toRightOf="@id/lblAddress"
-        />
-
-
-    <TextView
-        android:id="@+id/lblDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:text="Description:"
-        android:textColor="@android:color/holo_orange_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/lblPickingTime"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
-    <TextView
-        android:id="@+id/textDescription"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Llevar muchas bolsas porque esta malito del estomago"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintTop_toBottomOf="@+id/lblDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:orientation="horizontal"
+        >
 
+        <TextView
+            android:id="@+id/lblBreed"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Breed:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lblPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            />
 
-    <Button
-        android:id="@+id/btnAccept"
-        android:layout_width="150sp"
+        <TextView
+            android:id="@+id/textBreed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Husky"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/lblBreed"
+            app:layout_constraintLeft_toRightOf="@id/lblBreed"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:text="ACCEPT"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintTop_toBottomOf="@id/textDescription"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        >
 
-    <Button
-        android:id="@+id/btnDecline"
-        android:layout_width="150sp"
+        <TextView
+            android:id="@+id/lblPickingTime"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Picking time:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lblBreed"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textPickingTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="12:00"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/lblPickingTime"
+            app:layout_constraintLeft_toRightOf="@id/lblPickingTime"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:alpha="0.5"
-        android:backgroundTint="@android:color/holo_orange_dark"
-        android:text="DECLINE"
-        android:textAllCaps="false"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        app:cardCornerRadius="15dp"
-        android:layout_marginBottom="50sp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textDescription"/>
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/lblPhone"
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Phone:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lblAddress"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="438-222-333"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/lblPhone"
+            app:layout_constraintLeft_toRightOf="@id/lblAddress"
+            />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Description:"
+            android:textColor="@android:color/holo_orange_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/lblPickingTime"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="Llevar muchas bolsas porque esta malito del estomago"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintTop_toBottomOf="@+id/lblDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/btnAccept"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:alpha="0.5"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="ACCEPT"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintTop_toBottomOf="@id/textDescription"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnDecline"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            android:alpha="0.5"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:text="DECLINE"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginBottom="50sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDescription"/>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</ScrollView>

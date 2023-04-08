@@ -109,8 +109,7 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
 
                         final long ONE_MEGABYTE = 1024 * 1024;
                         Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
-                                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                            @Override
+                                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {@Override
                             public void onSuccess(byte[] bytes) {
                                 Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                                 imgDogOwner.setImageBitmap(bmp);

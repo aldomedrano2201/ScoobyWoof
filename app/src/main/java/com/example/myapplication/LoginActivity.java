@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void goToActivityProfile() {
 
         Util.setNodeAndChildDatabaseReference(Util.nodeValues.Users.toString(),mAuth.getCurrentUser().getUid())
-                .addValueEventListener(this);
+                .addListenerForSingleValueEvent(this);
 
     }
 

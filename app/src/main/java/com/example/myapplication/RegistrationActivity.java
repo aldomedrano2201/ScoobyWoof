@@ -159,7 +159,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                                 Toast.makeText(
                                                 getApplicationContext(),
                                                 "Registration failed!!"
-                                                        + task.getException(),
+                                                        + task.getException().getMessage(),
                                                 Toast.LENGTH_LONG)
                                         .show();
 

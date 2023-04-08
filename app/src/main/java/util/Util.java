@@ -107,8 +107,8 @@ public class Util {
     public static DatabaseReference setNodeAndChildDatabaseReference(String nodeValue, String childNodeValue){
         dbRef = FirebaseDatabase
                 .getInstance()
-                .getReference(String.valueOf(nodeValue));
-        dbRef.child(childNodeValue);
+                .getReference(String.valueOf(nodeValue))
+                .child(childNodeValue);
         return dbRef;
     }
 
