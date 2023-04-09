@@ -1,5 +1,8 @@
 package com.example.myapplication;
 
+import static model.GeneralListViews.notificationsList;
+
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +12,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import model.Request;
 import util.Util;
 
 public class OwnerDashboardActivity extends AppCompatActivity implements ValueEventListener, View.OnClickListener {
@@ -99,6 +103,47 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
 
     }
 
+    private void checkNotifications() {
+        Util.setNodeDatabaseReference(Util.nodeValues.Notifications.toString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if(snapshot.getChildrenCount() != 0){
+                            notificationsList.clear();
+                            int notificationsNumber = 0;
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                try{
+                                    if (snapshot1.child("dogOwnerId").getValue().toString()
+                                            .equals(userIdValue) &&
+                                            snapshot1.child("status").getValue().toString()
+                                                    .equals(Util.notificationStatus.Unread.toString())) {
+
+                                        notificationsNumber++;
+                                    }
+                                }catch (Exception e){
+                                    Toast.makeText(getApplicationContext(),
+                                                    e.getMessage(),
+                                                    Toast.LENGTH_LONG)
+                                            .show();
+                                }
+
+                            }
+                            if (notificationsNumber > 0)
+                                Toast.makeText(getApplicationContext(),
+                                                "You have "+  notificationsNumber + " new notifications to be checked",
+                                                Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         if (!snapshot.exists()){
@@ -124,7 +169,7 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
                     Toast.makeText(OwnerDashboardActivity.this, "Photograph not loaded!", Toast.LENGTH_SHORT).show();
                 }
             });
-
+            checkNotifications();
         }
 
 

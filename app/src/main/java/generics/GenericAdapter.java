@@ -31,10 +31,11 @@ public class GenericAdapter extends BaseAdapter {
     private Context context;
     private GenericClass genericlistView;
     private ArrayList<? extends Object> listOfObj;
-    private String storagePath, customDetail;
+    private String storagePath, titleDetail,customDetail;
     int idViewItem;
 
-    public GenericAdapter(Context context, GenericClass genericlistView, int idViewItem, String storagePath, String customDetail) {
+    public GenericAdapter(Context context, GenericClass genericlistView, int idViewItem, String storagePath,
+                          String titleDetail,String customDetail) {
 
         this.context = context;
         this.genericlistView = genericlistView;
@@ -42,6 +43,7 @@ public class GenericAdapter extends BaseAdapter {
         this.storagePath = storagePath;
         this.listOfObj = (ArrayList<? extends Object>) genericlistView.getValue();
         this.customDetail = customDetail;
+        this.titleDetail = titleDetail;
     }
 
     @Override
@@ -79,29 +81,31 @@ public class GenericAdapter extends BaseAdapter {
         Map<String, Object> result = new HashMap<>();
 
             result = PropertyExtractor.extractProperties(obj.getValue());
-            tvText1.setText(result.get("name").toString());
+            tvText1.setText(result.get(titleDetail).toString());
             tvText2.setText(result.get(customDetail).toString());
-            String photoStr= result.get("id").toString();
-            StorageReference storageReference = FirebaseStorage.getInstance().getReference();
-            StorageReference photoReference= storageReference.child(storagePath  + "/" +
-                    photoStr);
-            if (photoReference != null){
-                final long ONE_MEGABYTE = 1024 * 1024;
-                photoReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                        imPhoto.setImageBitmap(bmp);
-                        Util.saveImage(bmp,photoStr);
+            if (result.get("id") != null){
+                String photoStr= result.get("id").toString();
+
+                StorageReference photoReference= Util.setStorageReference(storagePath,photoStr);
+
+                if (photoReference != null){
+                    final long ONE_MEGABYTE = 1024 * 1024;
+                    Util.setStorageReference(storagePath,photoStr)
+                            .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                                @Override
+                                public void onSuccess(byte[] bytes) {
+                                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                                    imPhoto.setImageBitmap(bmp);
+                                    Util.saveImage(bmp,photoStr);
 
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                    }
-                });
-
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception exception) {
+                                }
+                            });
+                }
 
             }
 

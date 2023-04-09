@@ -7,18 +7,40 @@
 
     android:background="@drawable/white_orange">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgPic"
+        android:layout_width="50sp"
+        android:layout_height="100sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:thicknessRatio="1.9"/>
+
     <TextView
         android:id="@+id/text1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20sp"
-        android:layout_marginRight="20sp"
         android:text="Notification"
         android:textColor="@android:color/black"
-        android:textSize="20sp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/imgPic"
+        app:layout_constraintLeft_toRightOf="@id/imgPic"/>
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="Message"
+        android:maxLines="2"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
         android:textStyle="italic"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        app:layout_constraintLeft_toLeftOf="@id/text1"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

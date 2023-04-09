@@ -253,7 +253,7 @@ public class OwnerDogProfileActivity extends AppCompatActivity implements View.O
         }
         GenericClass<ArrayList<Dog>> genericObj = new GenericClass<ArrayList<Dog>>(dogsList);
         adapter = adapter= new GenericAdapter(this, genericObj,
-                R.layout.activity_my_dog_list_element, Util.imageFolders.DogImages.toString(), "breed");
+                R.layout.activity_my_dog_list_element, Util.imageFolders.DogImages.toString(), "name","breed");
         GeneralListViews.lvGenericlist.setAdapter(adapter);
 
 

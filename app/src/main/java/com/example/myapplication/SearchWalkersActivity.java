@@ -69,7 +69,7 @@ public class SearchWalkersActivity extends AppCompatActivity implements ValueEve
 
             GenericClass<ArrayList<?>> genericObj = new GenericClass<ArrayList<?>>(walkersList);
             adapter= new GenericAdapter(this, genericObj,
-                    R.layout.activity_search_walkers_element, Util.imageFolders.DogWalkersImages.toString(), "rate");
+                    R.layout.activity_search_walkers_element, Util.imageFolders.DogWalkersImages.toString(), "name","rate");
             lvGenericlist.setAdapter(adapter);
             lvGenericlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

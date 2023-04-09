@@ -36,7 +36,7 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
     GenericAdapter adapter;
 
     Button btnBackDogWalkerProfile;
-    String userIdValue;
+    String userIdValue, dogWalkerName;
 
 
 
@@ -62,6 +62,7 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
         btnBackDogWalkerProfile.setOnClickListener(this);
         lvGenericlist = findViewById(R.id.requests_list_view);
         userIdValue = getIntent().getStringExtra("dogWalkerId");
+        dogWalkerName = getIntent().getStringExtra("dogWalkerName");
         loadDBData();
 
 
@@ -93,7 +94,7 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
 
         GenericClass<ArrayList<?>> genericObj = new GenericClass<ArrayList<?>>(genRequestsList);
         adapter= new GenericAdapter(this, genericObj,
-                R.layout.activity_list_services_element, Util.imageFolders.DogImages.toString(), "dogName");
+                R.layout.activity_list_services_element, Util.imageFolders.DogImages.toString(), "name","dogName");
         lvGenericlist.setAdapter(adapter);
         lvGenericlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -102,7 +103,7 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
                     GenericClass requestItem = genRequestsList.get(position);
                     Intent intent = new Intent(ListServicesActivity.this,AcceptDeclineActivity.class);
                     intent.putExtra("requestObj", (Serializable) requestItem);
-                    intent.putExtra("dogWalkerName", getIntent().getStringExtra("dogWalkerName"));
+                    intent.putExtra("dogWalkerName", dogWalkerName);
                     intent.putExtra("requestItemIndex",position);
                     startActivity(intent);
                 }catch (Exception e){

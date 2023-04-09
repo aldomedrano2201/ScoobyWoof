@@ -42,6 +42,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
             txtBreed, txtDogDescription, txtPickingTime;
     GenericClass genRequest;
     Request request;
+    String dogWalkerName;
     int requestItemIndex = -1;
 
     @Override
@@ -67,7 +68,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
         btnDecline.setOnClickListener(this);
         btnGoBackDogWalkerProfile = findViewById(R.id.btnBackToDashboard);
         btnGoBackDogWalkerProfile.setOnClickListener(this);
-
+        dogWalkerName = getIntent().getStringExtra("dogWalkerName");
         requestItemIndex = getIntent().getIntExtra("requestItemIndex",-1);
         genRequest = (GenericClass) getIntent().getSerializableExtra("requestObj");
         request = (Request) genRequest.getValue();
@@ -136,7 +137,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
     private void notifyDogOwner(String statusRequest) {
         try{
             Notification notification = new Notification(UUID.randomUUID().toString(),
-                    getIntent().getStringExtra("dogWalkerName"),
+                    dogWalkerName,
                     txtDogName.getText().toString(),
                     request.getDogOwnerId(),
                     Util.notificationStatus.Unread.toString(),
@@ -160,6 +161,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
                             }else{
                                 Intent intent = new Intent(AcceptDeclineActivity.this,ListServicesActivity.class);
                                 intent.putExtra("dogWalkerId", request.getDogWalkerId());
+                                intent.putExtra("dogWalkerName",dogWalkerName);
                                 startActivity(intent);
                             }
 

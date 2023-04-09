@@ -12,10 +12,17 @@ public class PropertyExtractor {
             Field[] fields = resultClass.getDeclaredFields();
 
             for (Field field : fields) {
-                field.setAccessible(true);
-                String fieldName = field.getName();
-                String fieldValue = field.get(value).toString();
-                properties.put(fieldName, fieldValue);
+
+                try{
+                    field.setAccessible(true);
+                    String fieldName = field.getName();
+                    String fieldValue = field.get(value).toString();
+                    properties.put(fieldName, fieldValue);
+                }catch (Exception e){
+
+                }
+
+
 
             }
         }

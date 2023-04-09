@@ -9,7 +9,7 @@ public class Notification{
     private String dogOwnerId;
     private String dogWalkerName;
     private String dogName;
-
+    private String description;
     private String status;
     private String requestStatus;
 
@@ -23,6 +23,14 @@ public class Notification{
 
 
     }
+
+    public Notification(String dogWalkerName, String dogName, String requestStatus) {
+        this.dogWalkerName = dogWalkerName;
+        this.dogName = dogName;
+        this.requestStatus = requestStatus;
+
+    }
+
 
     public String getRequestStatus() {
         return requestStatus;
@@ -74,15 +82,26 @@ public class Notification{
         this.dogName = dogName;
     }
 
+    public String getDescription() {
+        return this.toString();
+    }
+
+
+    public void setDescription(String description) {
+        this.description = this.toString();
+    }
+
     @NonNull
     @Override
     public String toString() {
         if (getRequestStatus().contains(Util.requestStatus.Rejected.toString()))
-            return "We really sorry, but " + this.getDogWalkerName() + " " + Util.requestStatus.Rejected +
+            return "We really sorry, but " + this.getDogWalkerName() + " " + Util.requestStatus.Rejected.toString().toLowerCase() +
                      " to walk " + this.getDogName();
         else
-            return "Heads up! " + this.getDogWalkerName() + " " + Util.requestStatus.Accepted +
+            return "Heads up! " + this.getDogWalkerName() + " " + Util.requestStatus.Accepted.toString().toLowerCase() +
                     " to walk " + this.getDogName();
 
     }
+
+
 }

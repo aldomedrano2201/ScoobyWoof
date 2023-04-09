@@ -99,7 +99,7 @@ public class MyDogListActivity extends AppCompatActivity implements View.OnClick
 
         GenericClass<ArrayList<Dog>> genericObj = new GenericClass<ArrayList<Dog>>(dogsList);
         adapter= new GenericAdapter(this, genericObj,
-                R.layout.activity_my_dog_list_element, Util.imageFolders.DogImages.toString(), "breed");
+                R.layout.activity_my_dog_list_element, Util.imageFolders.DogImages.toString(), "name","breed");
         lvGenericlist.setAdapter(adapter);
         lvGenericlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
