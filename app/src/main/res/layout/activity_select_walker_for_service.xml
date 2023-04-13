@@ -28,7 +28,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:drawableLeft="@drawable/icon_back"
                 android:stateListAnimator="@null"
-                android:text="Select"
+
                 android:textAllCaps="false"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -145,6 +145,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:text="10.00"
+            android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
@@ -161,6 +162,7 @@
             android:text="CAD/hr"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toBottomOf="@+id/lineSpace1"
             app:layout_constraintLeft_toRightOf="@id/textRate"
             />
@@ -199,6 +201,7 @@
             android:text="438-222-333"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
             app:layout_constraintTop_toTopOf="@+id/lblPhone"
             app:layout_constraintLeft_toRightOf="@id/lblRate"
             />
@@ -231,7 +234,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-
+        android:textColor="@android:color/black"
         android:text="Me gusta la morcilla, los paseos por la playa y bailar el mapale "
         android:textSize="20sp"
         android:textStyle="italic"
@@ -242,7 +245,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="100sp"
             android:orientation="horizontal">
 
             <Button
@@ -250,21 +253,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Select Time and Date"
+                android:layout_marginLeft="20dp"
+                android:text="Select Date/Time"
                 android:textAllCaps="false"
-                android:textColor="@android:color/holo_orange_dark"
+                android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:background="@android:color/transparent"
+                android:backgroundTint="@android:color/holo_orange_dark"
 
                 />
 
             <TextView
                 android:id="@+id/textDateTime"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60sp"
                 android:layout_marginTop="20dp"
                 android:text=""
+                android:textColor="@android:color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:background="@android:color/white"
@@ -291,7 +296,7 @@
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:cardCornerRadius="15dp"
-        android:layout_marginBottom="50sp"
+        android:layout_marginTop="10sp"
         app:layout_constraintTop_toBottomOf="@id/textDateTime"
          />
 

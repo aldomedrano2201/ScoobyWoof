@@ -75,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="How do I have a profile with more than one dog?"
+
         android:textColor="@android:color/black"
         android:textSize="20sp"
         android:layout_marginLeft="20sp"
@@ -84,7 +84,7 @@
         android:textStyle="italic|bold"
         app:layout_constraintTop_toTopOf="@+id/lineSpace1"
         app:layout_constraintLeft_toLeftOf="parent"
-       />
+        />
 
     <ImageView
         android:id="@+id/imgFaq1"
@@ -101,7 +101,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:text="1. When you login succesfully using your credentials, click the button 'YOUR DOG PROFILE'\n\n2. Click on the icon located on the top/right to 'ADD DOG PROFILE'\n\n3. Fill the fields with your dog's information (photo,name, breed, description)\n\n4. Click on the button 'Save Changes'"
+
+
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:layout_marginLeft="20sp"

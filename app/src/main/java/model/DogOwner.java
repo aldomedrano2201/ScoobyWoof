@@ -16,10 +16,10 @@ public class DogOwner extends UserInfo{
 
     }
 
-    public DogOwner(String firstName, String lastname, String email, String phoneNumber) {
+    public DogOwner(String firstName, String lastname, String email, String phoneNumber, String address) {
         super(firstName, lastname, email);
         this.phoneNumber = phoneNumber;
-
+        this.address = address;
     }
 
     public String getAddress() {

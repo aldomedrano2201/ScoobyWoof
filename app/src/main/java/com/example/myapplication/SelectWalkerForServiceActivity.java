@@ -220,6 +220,7 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
         }
 
         if(requestExists == true){
+            textDateTime.setText("");
             Toast.makeText(getApplicationContext(),
                             "There is a request already created for the same walker and dog at the same time",
                             Toast.LENGTH_LONG)

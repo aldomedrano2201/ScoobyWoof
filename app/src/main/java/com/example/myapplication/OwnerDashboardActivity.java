@@ -38,7 +38,7 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
     String userIdValue;
     DatabaseReference databaseReference;
     Button btnYourDogProfile, btnNotifications,
-            btnRequestWalkingService, btnCompleteOwnerProfile, btnLogOut;
+            btnRequestWalkingService, btnCompleteOwnerProfile, btnLogOut, btnFAQandSupport, btnViewInsights;
     TextView txtName, txtEmail;
     ImageView imgIcon;
 
@@ -56,6 +56,10 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
         btnYourDogProfile = findViewById(R.id.btnYourDogProfile);
         btnNotifications = findViewById(R.id.btnOwnerNotifications);
         btnNotifications.setOnClickListener(this);
+        btnFAQandSupport = findViewById(R.id.btnFAQandSupport);
+        btnViewInsights = findViewById(R.id.btnViewInsights);
+        btnViewInsights.setOnClickListener(this);
+        btnFAQandSupport.setOnClickListener(this);
         btnYourDogProfile.setOnClickListener(this);
         btnRequestWalkingService.setOnClickListener(this);
         btnCompleteOwnerProfile.setOnClickListener(this);
@@ -219,7 +223,14 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
                 intent.putExtra("userId",userIdValue);
                 startActivity(intent);
                 break;
-
+            case R.id.btnFAQandSupport:
+                intent = new Intent(OwnerDashboardActivity.this, FaqActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btnViewInsights:
+                intent = new Intent(OwnerDashboardActivity.this, InsightsActivity.class);
+                startActivity(intent);
+                break;
 
             case R.id.btnLogOut:
                 userLogOut();

@@ -3,6 +3,7 @@ package generics;
 import java.io.Serializable;
 
 public class GenericClass<T> implements Serializable {
+    private String address;
     private T value;
     private String name;
     private String dogName;
@@ -10,21 +11,32 @@ public class GenericClass<T> implements Serializable {
     private String description;
     private String phoneNumber;
 
+
+    private String dogBreed;
+
     public GenericClass(T value) {
         this.value = value;
     }
 
 
-    public GenericClass(String name, String phoneNumber, String id, String dogName, String description, T value) {
+    public GenericClass(String name, String phoneNumber, String address, String id, String dogName, String dogBreed, String description, T value) {
         this.phoneNumber = phoneNumber;
+        this.address = address;
         this.name = name;
         this.dogName = dogName;
+        this.dogBreed = dogBreed;
         this.id = id;
         this.description = description;
         this.value = value;
     }
 
+    public String getDogBreed() {
+        return dogBreed;
+    }
 
+    public void setDogBreed(String dogBreed) {
+        this.dogBreed = dogBreed;
+    }
 
     public String getId() {
         return id;
@@ -72,5 +84,13 @@ public class GenericClass<T> implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

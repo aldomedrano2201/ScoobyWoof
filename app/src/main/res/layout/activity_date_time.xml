@@ -9,32 +9,38 @@
 
     <DatePicker
         android:id="@+id/date_picker"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
         android:spinnersShown="true"
+        android:textColor="#473C3C"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
-
     <TimePicker
         android:id="@+id/time_picker"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:background="#1DFF8800"
+        android:layout_centerInParent="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <Button
         android:id="@+id/btnSaveChangesDateTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="20dp"
         android:alpha="0.5"
         android:backgroundTint="@android:color/holo_orange_dark"
         android:text="Select time or date and press this button afterwards"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:cardCornerRadius="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/date_picker" />

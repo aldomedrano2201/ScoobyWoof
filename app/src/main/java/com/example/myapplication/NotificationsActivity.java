@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
@@ -26,13 +28,13 @@ import generics.GenericClass;
 import model.Notification;
 import util.Util;
 
-public class NotificationsActivity extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
+public class NotificationsActivity extends AppCompatActivity implements View.OnClickListener, ValueEventListener, OnCompleteListener<Void> {
 
     GenericAdapter adapter;
 
     Button btnBackDogOwnerDashboard;
     String userIdValue;
-
+    ArrayList<String> listOfNotificationIds = new ArrayList<String>();
 
 
     @Override
@@ -77,6 +79,7 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
         switch (view.getId()){
 
             case R.id.btnBackToDashboard:
+                updateNotificationsToReadStatus();
                 Intent intent
                         = new Intent(getApplicationContext(),OwnerDashboardActivity.class);
                 intent.putExtra("userId",userIdValue);
@@ -86,16 +89,35 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    private void updateNotificationsToReadStatus() {
+
+        for (String notificationIdItem : listOfNotificationIds){
+            Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Notifications.toString()
+                            ,notificationIdItem
+                            ,"status")
+                    .setValue(Util.notificationStatus.Read)
+                    .addOnCompleteListener(this);
+        }
+
+    }
+
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
         for(DataSnapshot snapshot1 : snapshot.getChildren()){
-            if(snapshot1.child("dogOwnerId").getValue().equals(userIdValue)){
-                Notification notification = new Notification(snapshot1.child("dogWalkerName").getValue().toString(),
-                        snapshot1.child("dogName").getValue().toString(),
-                        snapshot1.child("requestStatus").getValue().toString());
-                notification.setDescription(notification.toString());
-                notificationsList.add(notification);
+
+            try{
+                listOfNotificationIds.add(snapshot1.getKey());
+                if(snapshot1.child("dogOwnerId").getValue().equals(userIdValue)){
+                    Notification notification = new Notification(snapshot1.child("dogWalkerName").getValue().toString(),
+                            snapshot1.child("dogName").getValue().toString(),
+                            snapshot1.child("requestStatus").getValue().toString());
+                    notification.setDescription(notification.toString());
+                    notificationsList.add(notification);
+                }
+            }catch (Exception e){
+                  e.printStackTrace();
             }
+
         }
         setupRequestListListener();
 
@@ -103,6 +125,11 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
 
     @Override
     public void onCancelled(@NonNull DatabaseError error) {
+
+    }
+
+    @Override
+    public void onComplete(@NonNull Task<Void> task) {
 
     }
 }

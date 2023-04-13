@@ -18,28 +18,16 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ReviewsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InsightsActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectWalkerForServiceActivity"
             android:exported="false" />
         <activity
             android:name=".DateTimeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq7Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq6Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq5Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq4Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq3Activity"
-            android:exported="false" />
-        <activity
-            android:name=".Faq2Activity"
             android:exported="false" />
         <activity
             android:name=".Faq1Activity"

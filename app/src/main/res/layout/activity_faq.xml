@@ -68,7 +68,7 @@
 
 
     <Button
-        android:id="@+id/btnCompleteProfileOwner"
+        android:id="@+id/btnQuestion1"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:elevation="15dp"
@@ -92,7 +92,7 @@
         />
 
     <Button
-        android:id="@+id/btnYourDogProfile"
+        android:id="@+id/btnQuestion2"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginLeft="20dp"
@@ -114,10 +114,10 @@
         app:layout_constraintEnd_toEndOf="@id/lineSpace1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@id/lineSpace1"
-        app:layout_constraintTop_toBottomOf="@id/btnCompleteProfileOwner" />
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion1" />
 
     <Button
-        android:id="@+id/btnOwnerNotifications"
+        android:id="@+id/btnQuestion3"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:elevation="15dp"
@@ -134,7 +134,7 @@
         android:gravity="left|center_vertical"
         android:alpha="0.9"
         android:layout_marginTop="1sp"
-        app:layout_constraintTop_toBottomOf="@id/btnYourDogProfile"
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -142,7 +142,7 @@
 
 
     <Button
-        android:id="@+id/btnRequestWalkingService"
+        android:id="@+id/btnQuestion4"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:elevation="15dp"
@@ -150,7 +150,7 @@
         android:layout_marginRight="20dp"
         android:stateListAnimator="@null"
         android:backgroundTint="#F6F4F3"
-        android:text="RHow do I contact the owner if there is an issue?"
+        android:text="How do I contact the owner if there is an issue?"
         android:textColor="#0E0E0E"
         android:textAllCaps="false"
         android:textSize="16sp"
@@ -159,13 +159,13 @@
         android:gravity="left|center_vertical"
         android:alpha="0.9"
         android:layout_marginTop="5sp"
-        app:layout_constraintTop_toBottomOf="@id/btnOwnerNotifications"
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <Button
-        android:id="@+id/btnFAQandSupport"
+        android:id="@+id/btnQuestion5"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:elevation="15dp"
@@ -182,13 +182,13 @@
         android:gravity="left|center_vertical"
         android:alpha="0.9"
         android:layout_marginTop="1sp"
-        app:layout_constraintTop_toBottomOf="@id/btnRequestWalkingService"
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
     <Button
-        android:id="@+id/btnViewInsights"
+        android:id="@+id/btnQuestion6"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginLeft="20dp"
@@ -208,10 +208,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnFAQandSupport" />
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion5" />
 
     <Button
-        android:id="@+id/btnSupport"
+        android:id="@+id/btnQuestion7"
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:layout_marginLeft="20dp"
@@ -231,6 +231,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnViewInsights" />
+        app:layout_constraintTop_toBottomOf="@id/btnQuestion6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

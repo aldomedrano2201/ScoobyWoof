@@ -124,7 +124,8 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
         dogOwner = new DogOwner(snapshot.child("firstName").getValue().toString(),
                 snapshot.child("lastName").getValue().toString(),
                 snapshot.child("email").getValue().toString(),
-                snapshot.child(Util.nodeValues.DogOwner.toString()).child("phoneNumber").getValue().toString());
+                snapshot.child(Util.nodeValues.DogOwner.toString()).child("phoneNumber").getValue().toString(),
+                snapshot.child(Util.nodeValues.DogOwner.toString()).child("address").getValue().toString());
         Util.setNodeAndChildrenDatabaseReference(Util.nodeValues.Dog.toString(),request.getDogOwnerId(),request.getDogId())
                 .addValueEventListener(new ValueEventListener() {
             @Override
@@ -133,8 +134,8 @@ public class ListServicesActivity extends AppCompatActivity implements View.OnCl
                     dog = new Dog(request.getDogId(),snapshot.child("name").getValue().toString(),
                             snapshot.child("breed").getValue().toString(),
                             snapshot.child("description").getValue().toString());
-                    genRequestsList.add(new GenericClass(dogOwner.toString(), dogOwner.getPhoneNumber(),
-                            dog.getId(), dog.getName(), dog.getDescription(), request));
+                    genRequestsList.add(new GenericClass(dogOwner.toString(), dogOwner.getPhoneNumber(), dogOwner.getAddress(),
+                            dog.getId(), dog.getName(), dog.getBreed(),dog.getDescription(), request));
                     try{
                         request = requestList.get(++itemRequestIndex);
                         getUserAmdDogInfoFromDB();

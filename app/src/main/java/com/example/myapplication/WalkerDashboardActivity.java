@@ -42,7 +42,7 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
     String userIdValue;
 
     Button btnCompleteWalkerProfile, btnNotifications,
-            btnAcceptDeclineService, btnLogOut;
+            btnAcceptDeclineService, btnLogOut, btnFAQandSupport, btnViewInsights;
     TextView txtName, txtEmail;
     ImageView imgIcon;
     Switch swActivation;
@@ -60,11 +60,14 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
         btnNotifications = findViewById(R.id.btnWalkerNotifications);
         btnAcceptDeclineService = findViewById(R.id.btnAcceptDecline);
         btnLogOut = findViewById(R.id.btnLogOut);
-
+        btnFAQandSupport = findViewById(R.id.btnFAQandSupport);
+        btnFAQandSupport.setOnClickListener(this);
         btnNotifications.setOnClickListener(this);
         btnCompleteWalkerProfile.setOnClickListener(this);
         btnAcceptDeclineService.setOnClickListener(this);
         btnLogOut.setOnClickListener(this);
+        btnViewInsights = findViewById(R.id.btnViewInsights);
+        btnViewInsights.setOnClickListener(this);
 
         imgIcon = findViewById(R.id.imgPic);
         txtEmail = findViewById(R.id.textHelloEmail);
@@ -261,8 +264,16 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
             case R.id.btnLogOut:
                 userLogOut();
                 break;
+            case R.id.btnFAQandSupport:
+                intent = new Intent(WalkerDashboardActivity.this, FaqActivity.class);
+                startActivity(intent);
+                break;
             case R.id.swWalkerActivation:
                 upDateActivation();
+                break;
+            case R.id.btnViewInsights:
+                intent = new Intent(WalkerDashboardActivity.this, InsightsActivity.class);
+                startActivity(intent);
                 break;
 
 

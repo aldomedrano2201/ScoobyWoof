@@ -74,6 +74,8 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
         request = (Request) genRequest.getValue();
         txtName.setText(genRequest.getName());
         txtDogName.setText(genRequest.getDogName());
+        txtAddress.setText(genRequest.getAddress());
+        txtBreed.setText(genRequest.getDogBreed());
         txtPickingTime.setText(request.getDateTime());
         txtPhoneNumber.setText(genRequest.getPhoneNumber());
         txtDogDescription.setText(genRequest.getDescription());
@@ -150,7 +152,7 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
                         public void onComplete(@NonNull Task<Void> task) {
 
                             Toast.makeText(getApplicationContext(),
-                                            "Thank you, we will notify the owner that you " + statusRequest + " the service",
+                                            "Thank you, we will notify the owner that you " + statusRequest.toLowerCase()+ " the service",
                                             Toast.LENGTH_LONG)
                                     .show();
 
