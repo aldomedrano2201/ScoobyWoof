@@ -146,20 +146,20 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
         String phoneNumber = edPhoneNumber.getText().toString().trim();
         String description = edDescription.getText().toString().trim();
         //validate inputs
-        if (address.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(address)) {
             edAddress.setError("Enter your address");
             edAddress.requestFocus();
             return;
         }
 
-        if (phoneNumber.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(phoneNumber)) {
             edPhoneNumber.setError("Enter your last name");
             edPhoneNumber.requestFocus();
             return;
         }
 
-        if (description.isEmpty()) {
-            edDescription.setError("Enter your email");
+        if (Util.isNullOrWhiteSpace(description)) {
+            edDescription.setError("Enter your description");
             edDescription.requestFocus();
             return;
         }

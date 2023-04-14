@@ -131,19 +131,19 @@ public class WalkerProfileActivity extends AppCompatActivity implements View.OnC
         String phoneNumber = edPhoneNumber.getText().toString().trim();
         String description = edDescription.getText().toString().trim();
         //validate inputs
-        if (rate.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(rate)) {
             edRate.setError("Enter your rate");
             edRate.requestFocus();
             return;
         }
 
-        if (phoneNumber.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(phoneNumber)) {
             edPhoneNumber.setError("Enter your last name");
             edPhoneNumber.requestFocus();
             return;
         }
 
-        if (description.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(description)) {
             edDescription.setError("Enter your email");
             edDescription.requestFocus();
             return;

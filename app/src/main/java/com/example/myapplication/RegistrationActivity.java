@@ -47,10 +47,10 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 .getInstance()
                 .getReference(String.valueOf(Util.nodeValues.Users));
 
-        initalize();
+        initialize();
     }
 
-    private void initalize() {
+    private void initialize() {
         edFirstName = findViewById(R.id.edFirstName);
         edLastName = findViewById(R.id.edLastName);
         edPassword = findViewById(R.id.edPassword);
@@ -87,25 +87,25 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         String userType;
 
         //validate inputs
-        if (firstNameValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(firstNameValue)) {
             edFirstName.setError("Enter your first name");
             edFirstName.requestFocus();
             return;
         }
 
-        if (lastNameValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(lastNameValue)) {
             edLastName.setError("Enter your last name");
             edLastName.requestFocus();
             return;
         }
 
-        if (emailValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(emailValue)) {
             edEmail.setError("Enter your email");
             edEmail.requestFocus();
             return;
         }
 
-        if (passwordValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(passwordValue)) {
             edPassword.setError("Enter your password");
             edPassword.requestFocus();
             return;
@@ -163,7 +163,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                                                 Toast.LENGTH_LONG)
                                         .show();
 
-                                // hide the progress bar
+
                             }
 
                         }

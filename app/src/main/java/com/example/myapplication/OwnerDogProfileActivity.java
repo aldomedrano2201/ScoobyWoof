@@ -144,19 +144,19 @@ public class OwnerDogProfileActivity extends AppCompatActivity implements View.O
         String name = edDogName.getText().toString().trim();
         String description = edDogBio.getText().toString().trim();
         //validate inputs
-        if (breed.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(breed)) {
             edDogBreed.setError("Enter your dog's breed");
             edDogBreed.requestFocus();
             return;
         }
 
-        if (name.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(name)) {
             edDogName.setError("Enter your dog's name");
             edDogName.requestFocus();
             return;
         }
 
-        if (description.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(description)) {
             edDogBio.setError("Enter dog's details");
             edDogBio.requestFocus();
             return;

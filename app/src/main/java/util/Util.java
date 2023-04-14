@@ -3,7 +3,14 @@ package util;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
+import com.example.myapplication.OwnerProfileActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -18,6 +25,8 @@ public class Util {
 
     static StorageReference storageReference = FirebaseStorage.getInstance().getReference();
 
+    static boolean isLoaded = false;
+
     public enum nodeValues {
 
         Users,
@@ -25,7 +34,8 @@ public class Util {
         DogOwner,
         DogWalker,
         Requests,
-        Notifications
+        Notifications,
+        Reviews
 
     }
     public enum imageFolders {
@@ -97,6 +107,10 @@ public class Util {
         if (file.exists ()) file.delete ();
     }
 
+
+    //Static methods to instantiate the firebase database access and set the reference to access the nodes and children
+    //requested by different activities classes
+
     public static DatabaseReference setNodeDatabaseReference(String nodeValue){
         dbRef = FirebaseDatabase
                 .getInstance()
@@ -122,11 +136,42 @@ public class Util {
         return dbRef;
     }
 
+    //Reference the firebase storage access
     public static StorageReference setStorageReference(String folderImages, String photoId){
 
         StorageReference photoReference= storageReference.child(folderImages  + "/" +
                 photoId);
         return photoReference;
     }
+
+    /**
+     * Validates if a string is empty or only contains whitespace characters
+     * @param str the string to validate
+     * @return true if the string is empty or only contains whitespace characters, false otherwise
+     */
+    public static boolean isNullOrWhiteSpace(String str) {
+        return str == null || str.trim().isEmpty();
+    }
+
+    // Load an image from the firebase reference into an imageview widget
+    public static boolean loadImageFromDB(String imageFolder, String imageId, ImageView imageViewObj){
+        final long ONE_MEGABYTE = 1024 * 1024;
+
+        Util.setStorageReference(imageFolder,imageId)
+                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {@Override
+                public void onSuccess(byte[] bytes) {
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                    imageViewObj.setImageBitmap(bmp);
+                    isLoaded = true;
+                }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        isLoaded = false;
+                    }
+                });
+        return isLoaded;
+    }
+
 
 }

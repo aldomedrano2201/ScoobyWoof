@@ -138,14 +138,14 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
 
     private void notifyDogOwner(String statusRequest) {
         try{
-            Notification notification = new Notification(UUID.randomUUID().toString(),
+            Notification notification = new Notification(request.getDogWalkerId(),
                     dogWalkerName,
                     txtDogName.getText().toString(),
                     request.getDogOwnerId(),
                     Util.notificationStatus.Unread.toString(),
                     statusRequest);
 
-            Util.setNodeAndChildDatabaseReference(Util.nodeValues.Notifications.toString(),notification.getId())
+            Util.setNodeAndChildDatabaseReference(Util.nodeValues.Notifications.toString(),UUID.randomUUID().toString())
                     .setValue(notification)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override

@@ -5,7 +5,7 @@ import androidx.annotation.NonNull;
 import util.Util;
 
 public class Notification{
-    private String id;
+    private String dogWalkerId;
     private String dogOwnerId;
     private String dogWalkerName;
     private String dogName;
@@ -13,8 +13,8 @@ public class Notification{
     private String status;
     private String requestStatus;
 
-    public Notification(String id, String dogWalkerName, String dogName, String dogOwnerId, String status, String requestStatus) {
-        this.id = id;
+    public Notification(String dogWalkerId, String dogWalkerName, String dogName, String dogOwnerId, String status, String requestStatus) {
+        this.dogWalkerId = dogWalkerId;
         this.dogOwnerId = dogOwnerId;
         this.dogWalkerName = dogWalkerName;
         this.dogName = dogName;
@@ -31,6 +31,20 @@ public class Notification{
 
     }
 
+    public Notification(String dogWalkerId, String dogWalkerName, String dogName, String requestStatus) {
+        this.dogWalkerId = dogWalkerId;
+        this.dogWalkerName = dogWalkerName;
+        this.dogName = dogName;
+        this.requestStatus = requestStatus;
+    }
+
+    public String getDogWalkerId() {
+        return dogWalkerId;
+    }
+
+    public void setDogWalkerId(String dogWalkerId) {
+        this.dogWalkerId = dogWalkerId;
+    }
 
     public String getRequestStatus() {
         return requestStatus;
@@ -38,14 +52,6 @@ public class Notification{
 
     public void setRequestStatus(String requestStatus) {
         this.requestStatus = requestStatus;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getDogOwnerId() {
@@ -95,7 +101,7 @@ public class Notification{
     @Override
     public String toString() {
         if (getRequestStatus().contains(Util.requestStatus.Rejected.toString()))
-            return "We really sorry, but " + this.getDogWalkerName() + " " + Util.requestStatus.Rejected.toString().toLowerCase() +
+            return "We really sorry, but " + this.getDogWalkerName() + " is unable" +
                      " to walk " + this.getDogName();
         else
             return "Heads up! " + this.getDogWalkerName() + " " + Util.requestStatus.Accepted.toString().toLowerCase() +

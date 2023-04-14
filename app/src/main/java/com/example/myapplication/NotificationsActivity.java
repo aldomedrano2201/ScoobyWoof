@@ -69,7 +69,31 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
         adapter= new GenericAdapter(this, genericObj,
                 R.layout.activity_notifications_element, Util.imageFolders.DogWalkersImages.toString(),"dogName", "description");
         lvGenericlist.setAdapter(adapter);
+        lvGenericlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try{
+                    Notification notificationItem = notificationsList.get(position);
+                    if(notificationItem.getRequestStatus().equals(Util.requestStatus.Accepted.toString())){
+                        Intent intent
+                                = new Intent(getApplicationContext(),ReviewActivity.class);
+                        intent.putExtra("dogWalkerId",notificationItem.getDogWalkerId());
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(),
+                                        "You can't review dog walkers who were not able to walk your dog",
+                                        Toast.LENGTH_LONG)
+                                .show();
+                    }
 
+                }catch (Exception e){
+                    Toast.makeText(getApplicationContext(),
+                                    e.getMessage(),
+                                    Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
 
 
     }
@@ -108,7 +132,9 @@ public class NotificationsActivity extends AppCompatActivity implements View.OnC
             try{
                 listOfNotificationIds.add(snapshot1.getKey());
                 if(snapshot1.child("dogOwnerId").getValue().equals(userIdValue)){
-                    Notification notification = new Notification(snapshot1.child("dogWalkerName").getValue().toString(),
+                    Notification notification = new Notification(
+                            snapshot1.child("dogWalkerId").getValue().toString(),
+                            snapshot1.child("dogWalkerName").getValue().toString(),
                             snapshot1.child("dogName").getValue().toString(),
                             snapshot1.child("requestStatus").getValue().toString());
                     notification.setDescription(notification.toString());

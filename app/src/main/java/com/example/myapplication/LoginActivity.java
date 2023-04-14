@@ -59,13 +59,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String passwordValue = edPassword.getText().toString().trim();
 
 
-        if (emailValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(emailValue)) {
             edEmail.setError("Enter your email");
             edEmail.requestFocus();
             return;
         }
 
-        if (passwordValue.isEmpty()) {
+        if (Util.isNullOrWhiteSpace(passwordValue)) {
             edPassword.setError("Enter your password");
             edPassword.requestFocus();
             return;
