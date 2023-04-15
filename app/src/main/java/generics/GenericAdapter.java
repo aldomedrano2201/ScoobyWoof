@@ -81,8 +81,10 @@ public class GenericAdapter extends BaseAdapter {
         Map<String, Object> result = new HashMap<>();
 
             result = PropertyExtractor.extractProperties(obj.getValue());
-            tvText1.setText(result.get(titleDetail).toString());
-            tvText2.setText(result.get(customDetail).toString());
+            if (result.containsKey(titleDetail))
+                tvText1.setText(result.get(titleDetail).toString());
+            if (result.containsKey(customDetail))
+                tvText2.setText(result.get(customDetail).toString());
             if (result.get("id") != null){
                 String photoStr= result.get("id").toString();
 

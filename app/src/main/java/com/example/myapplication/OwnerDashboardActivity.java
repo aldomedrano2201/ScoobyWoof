@@ -36,7 +36,6 @@ import util.Util;
 public class OwnerDashboardActivity extends AppCompatActivity implements ValueEventListener, View.OnClickListener {
 
     String userIdValue;
-    DatabaseReference databaseReference;
     Button btnYourDogProfile, btnNotifications,
             btnRequestWalkingService, btnCompleteOwnerProfile, btnLogOut, btnFAQandSupport, btnViewInsights;
     TextView txtName, txtEmail;
@@ -158,21 +157,12 @@ public class OwnerDashboardActivity extends AppCompatActivity implements ValueEv
             btnNotifications.setEnabled(false);
             btnRequestWalkingService.setEnabled(false);
         }else{
-            final long ONE_MEGABYTE = 1024 * 1024;
-            Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
-                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                @Override
-                public void onSuccess(byte[] bytes) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    imgIcon.setImageBitmap(bmp);
 
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    Toast.makeText(OwnerDashboardActivity.this, "Photograph not loaded!", Toast.LENGTH_SHORT).show();
-                }
-            });
+
+            if(!Util.loadImageFromDB(Util.imageFolders.DogOwnersImages.toString(),userIdValue,imgIcon)){
+                Toast.makeText(getApplicationContext(), "Loading photograph", Toast.LENGTH_SHORT).show();
+            }
+
             checkNotifications();
         }
 

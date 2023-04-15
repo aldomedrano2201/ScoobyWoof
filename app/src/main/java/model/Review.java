@@ -1,15 +1,25 @@
 package model;
 
 public class Review {
+
     private String message;
     private String dogWalkerId;
-    private float rateReview;
+    private String id;
 
-    public Review(String message, String dogWalkerId, float rateReview) {
+    public Review(String message, String dogWalkerId, String rateReview) {
         this.message = message;
         this.dogWalkerId = dogWalkerId;
-        this.rateReview = rateReview;
+        this.id = rateReview;
+
     }
+
+    public Review(String message, String rateReview) {
+        this.message = message;
+        this.id = rateReview;
+
+    }
+
+
 
     public String getMessage() {
         return message;
@@ -27,11 +37,12 @@ public class Review {
         this.dogWalkerId = dogWalkerId;
     }
 
-    public float getRateReview() {
-        return rateReview;
+
+    public String getId() {
+        return id;
     }
 
-    public void setRateReview(float rateReview) {
-        this.rateReview = rateReview;
+    public void setId(String id) {
+        this.id = id;
     }
 }

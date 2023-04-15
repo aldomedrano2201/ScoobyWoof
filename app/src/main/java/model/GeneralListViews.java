@@ -22,4 +22,6 @@ public class GeneralListViews extends ViewModel {
 
     public static ArrayList<Notification> notificationsList= new ArrayList<>();
 
+    public static ArrayList<Review> reviewsList = new ArrayList<>();
+
 }

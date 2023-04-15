@@ -79,15 +79,18 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
         txtPickingTime.setText(request.getDateTime());
         txtPhoneNumber.setText(genRequest.getPhoneNumber());
         txtDogDescription.setText(genRequest.getDescription());
-        loadDogWalkerImage();
+        loadDogOwnerImage();
     }
 
 
 
-    private void loadDogWalkerImage() {
+    private void loadDogOwnerImage() {
 
-        Util.setNodeDatabaseReference(Util.nodeValues.DogOwner.toString()).
-                addListenerForSingleValueEvent(this);
+
+        if(Util.loadImageFromDB(Util.imageFolders.DogOwnersImages.toString(),request.getDogOwnerId(),imgDogOwner)){
+            loadDogImage();
+        }
+
     }
 
     @Override
@@ -152,7 +155,8 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
                         public void onComplete(@NonNull Task<Void> task) {
 
                             Toast.makeText(getApplicationContext(),
-                                            "Thank you, we will notify the owner that you " + statusRequest.toLowerCase()+ " the service",
+                                            "Thank you, we will notify the owner that you " + statusRequest.toLowerCase()+
+                                                    " the service",
                                             Toast.LENGTH_LONG)
                                     .show();
 
@@ -184,27 +188,6 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
     @Override
     public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            final long ONE_MEGABYTE = 1024 * 1024;
-            Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),request.getDogOwnerId())
-                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                @Override
-                public void onSuccess(byte[] bytes) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    imgDogOwner.setImageBitmap(bmp);
-                    loadDogImage();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    Toast.makeText(getApplicationContext(),
-                                    "Photo not loaded!",
-                                    Toast.LENGTH_LONG)
-                            .show();
-                }
-            });
-
-
-
     }
 
     @Override
@@ -220,24 +203,9 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                final long ONE_MEGABYTE = 1024 * 1024;
-                Util.setStorageReference(Util.imageFolders.DogImages.toString(),request.getDogId())
-                        .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                    @Override
-                    public void onSuccess(byte[] bytes) {
-                        Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                        imgDog.setImageBitmap(bmp);
-                        loadDogImage();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception exception) {
-                        Toast.makeText(getApplicationContext(),
-                                        "Photo not loaded!",
-                                        Toast.LENGTH_LONG)
-                                .show();
-                    }
-                });
+                if(!Util.loadImageFromDB(Util.imageFolders.DogImages.toString(),request.getDogId(),imgDog)){
+                    Toast.makeText(getApplicationContext(), "Loading photograph", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
@@ -245,6 +213,9 @@ public class AcceptDeclineActivity extends AppCompatActivity implements View.OnC
 
             }
         });
+
+
+
     }
 
 

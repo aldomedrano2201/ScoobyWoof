@@ -36,7 +36,8 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
     private static final int MY_REQUEST_CODE = 0;
     ImageView imgWalker;
     Button btnCreateDogWalkingRequest, btnSelectDatetime, btnBackDogList;
-    TextView txtName, txtEmail, txtDescription, txtRate, txtPhoneNumber, textDateTime;
+    TextView txtName, txtEmail, txtDescription,
+            txtRate, txtPhoneNumber, textDateTime, txtReviewLink;
     boolean isCalendarObject = true;
 
     String dogWalkerId, dateTimeString;
@@ -70,32 +71,54 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
         txtDescription.setText(getIntent().getStringExtra("description"));
         txtRate.setText(getIntent().getStringExtra("rate"));
         txtPhoneNumber.setText(getIntent().getStringExtra("phoneNumber"));
+        txtReviewLink = findViewById(R.id.txtReviewLink);
+        txtReviewLink.setOnClickListener(this);
+        txtReviewLink.setVisibility(View.INVISIBLE);
         dogWalkerId = getIntent().getStringExtra("dogWalkerId");
 
-
-
-
+        loadDogWalkerReviews();
         loadDogWalkerImage();
 
     }
 
+    private void loadDogWalkerReviews() {
+        Util.setNodeDatabaseReference(Util.nodeValues.Reviews.toString())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                                try
+                                {
+                                    if(snapshot1.child("dogWalkerId").getValue().equals(dogWalkerId)){
+                                        txtReviewLink.setVisibility(View.VISIBLE);
+                                        break;
+                                    }
+
+                                }catch (Exception e){
+                                    Toast.makeText(getApplicationContext(),
+                                                    e.getMessage(),
+                                                    Toast.LENGTH_LONG)
+                                            .show();
+                                }
+
+                            }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
     private void loadDogWalkerImage() {
 
-        final long ONE_MEGABYTE = 1024 * 1024;
-        Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),dogWalkerId)
-                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-            @Override
-            public void onSuccess(byte[] bytes) {
-                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                imgWalker.setImageBitmap(bmp);
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(SelectWalkerForServiceActivity.this, "Photograph not loaded", Toast.LENGTH_SHORT).show();
-            }
-        });
+        if(!Util.loadImageFromDB(Util.imageFolders.DogWalkersImages.toString(),dogWalkerId,imgWalker)){
+            Toast.makeText(getApplicationContext(), "Loading photograph", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -103,7 +126,6 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
     private void saveWalkingServiceRequest() {
 
         validateRequest();
-
 
     }
 
@@ -123,7 +145,10 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
     private void validateRequest() {
         String regex = "^\\d{4}-\\d{2}-\\d{2} \\d{2}$";
         if (textDateTime.getText().toString().isEmpty()){
-            textDateTime.setError("Please set the time and date of your request");
+            Toast.makeText(getApplicationContext(),
+                            "Please set the time and date of your request",
+                            Toast.LENGTH_LONG)
+                    .show();
             textDateTime.requestFocus();
             textDateTime.setText("");
             isCalendarObject = true;
@@ -135,7 +160,10 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
 
 
             }else{
-                textDateTime.setError("Date and time format not properly set");
+                Toast.makeText(getApplicationContext(),
+                                "Date and time format not properly set",
+                                Toast.LENGTH_LONG)
+                        .show();
                 textDateTime.requestFocus();
                 textDateTime.setText("");
                 isCalendarObject = true;
@@ -168,6 +196,12 @@ public class SelectWalkerForServiceActivity extends AppCompatActivity implements
             case R.id.btnSendRequest:
                 saveWalkingServiceRequest();
                 break;
+            case R.id.txtReviewLink:
+                Intent intent
+                        = new Intent(getApplicationContext(),
+                        ReviewsListActivity.class);
+                intent.putExtra("dogWalkerId",dogWalkerId);
+                startActivity(intent);
             case R.id.btnBack:
                 finish();
                 break;

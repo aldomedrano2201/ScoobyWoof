@@ -106,25 +106,9 @@ public class OwnerProfileActivity extends AppCompatActivity implements View.OnCl
                         edAddress.setText(snapshot.child("address").getValue().toString());
                         edDescription.setText(snapshot.child("description").getValue().toString());
 
-
-                        final long ONE_MEGABYTE = 1024 * 1024;
-                        Util.setStorageReference(Util.imageFolders.DogOwnersImages.toString(),userIdValue)
-                                .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {@Override
-                            public void onSuccess(byte[] bytes) {
-                                Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                imgDogOwner.setImageBitmap(bmp);
-
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                Toast.makeText(OwnerProfileActivity.this, "Photograph not loaded", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-
-
-
+                       if(!Util.loadImageFromDB(Util.imageFolders.DogOwnersImages.toString(),userIdValue,imgDogOwner)){
+                            Toast.makeText(getApplicationContext(), "Loading photograph", Toast.LENGTH_SHORT).show();
+                       }
                     }
                 }
 

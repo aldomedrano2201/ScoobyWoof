@@ -41,7 +41,7 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
     String userIdValue;
 
-    Button btnCompleteWalkerProfile, btnNotifications,
+    Button btnCompleteWalkerProfile, btnReviews,
             btnAcceptDeclineService, btnLogOut, btnFAQandSupport, btnViewInsights;
     TextView txtName, txtEmail;
     ImageView imgIcon;
@@ -57,12 +57,12 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
     private void initialize() {
         btnCompleteWalkerProfile = findViewById(R.id.btnCompleteProfileWalker);
-        btnNotifications = findViewById(R.id.btnWalkerNotifications);
+        btnReviews = findViewById(R.id.btnWalkerReviews);
         btnAcceptDeclineService = findViewById(R.id.btnAcceptDecline);
         btnLogOut = findViewById(R.id.btnLogOut);
         btnFAQandSupport = findViewById(R.id.btnFAQandSupport);
         btnFAQandSupport.setOnClickListener(this);
-        btnNotifications.setOnClickListener(this);
+        btnReviews.setOnClickListener(this);
         btnCompleteWalkerProfile.setOnClickListener(this);
         btnAcceptDeclineService.setOnClickListener(this);
         btnLogOut.setOnClickListener(this);
@@ -201,7 +201,7 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
                             "Please complete the profile",
                             Toast.LENGTH_LONG)
                     .show();
-            btnNotifications.setEnabled(false);
+            btnReviews.setEnabled(false);
             btnAcceptDeclineService.setEnabled(false);
             swActivation.setEnabled(false);
 
@@ -210,21 +210,9 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
 
         }else{
             swActivation.setChecked((boolean)snapshot.child("active").getValue());
-            final long ONE_MEGABYTE = 1024 * 1024;
-            Util.setStorageReference(Util.imageFolders.DogWalkersImages.toString(),userIdValue)
-                    .getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
-                @Override
-                public void onSuccess(byte[] bytes) {
-                    Bitmap bmp = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                    imgIcon.setImageBitmap(bmp);
-
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    Toast.makeText(WalkerDashboardActivity.this, "Photograph not loaded!", Toast.LENGTH_SHORT).show();
-                }
-            });
+            if(!Util.loadImageFromDB(Util.imageFolders.DogWalkersImages.toString(),userIdValue,imgIcon)){
+                Toast.makeText(getApplicationContext(), "Loading photograph", Toast.LENGTH_SHORT).show();
+            }
             checkDogWalkingRequests();
 
         }
@@ -259,6 +247,13 @@ public class WalkerDashboardActivity extends AppCompatActivity implements ValueE
                 intent.putExtra("dogWalkerId",userIdValue);
                 intent.putExtra("dogWalkerName",txtName.getText());
                 intent.putExtra("requestList", requestList);
+                startActivity(intent);
+                break;
+            case R.id.btnWalkerReviews:
+                intent
+                        = new Intent(WalkerDashboardActivity.this,
+                        ReviewsListActivity.class);
+                intent.putExtra("dogWalkerId",userIdValue);
                 startActivity(intent);
                 break;
             case R.id.btnLogOut:

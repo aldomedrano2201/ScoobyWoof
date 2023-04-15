@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/white_orange">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/imgPic"
-        android:layout_width="50sp"
+        android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/notification"
+        android:src="@drawable/review"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:thicknessRatio="1.9"/>
@@ -32,7 +32,7 @@
         app:layout_constraintLeft_toRightOf="@id/imgPic"/>
     <TextView
         android:id="@+id/text2"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="60dp"
         android:text="Message"
         android:maxLines="2"

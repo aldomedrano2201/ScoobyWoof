@@ -1,12 +1,15 @@
 package util;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 
 import com.example.myapplication.OwnerProfileActivity;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -43,6 +46,7 @@ public class Util {
         DogOwnersImages,
         DogWalkersImages,
         DogImages,
+        StarsImages
 
     }
 
@@ -106,6 +110,7 @@ public class Util {
         File file = new File(path + "/" , photoStr + ".jpg");
         if (file.exists ()) file.delete ();
     }
+
 
 
     //Static methods to instantiate the firebase database access and set the reference to access the nodes and children

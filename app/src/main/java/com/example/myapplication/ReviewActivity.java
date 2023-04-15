@@ -68,7 +68,6 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btnSaveReview:
                 validateReview();
-                finish();
                 break;
 
         }
@@ -97,7 +96,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
 
     private void saveReview() {
 
-        Review review = new Review(reviewDetail,dogWalkerId, userRating);
+        Review review = new Review(reviewDetail,dogWalkerId, String.valueOf(userRating));
 
         Util.setNodeAndChildDatabaseReference(Util.nodeValues.Reviews.toString(), UUID.randomUUID().toString())
                 .setValue(review)
@@ -113,6 +112,7 @@ public class ReviewActivity extends AppCompatActivity implements View.OnClickLis
     public void onComplete(@NonNull Task<Void> task) {
         Toast.makeText(getApplicationContext(), "Thank you, your reviews are very important for our walkers",
                 Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 
