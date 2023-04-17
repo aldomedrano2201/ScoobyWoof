@@ -83,7 +83,7 @@
         android:layout_marginRight="20dp"
         android:stateListAnimator="@null"
         android:backgroundTint="#F6F4F3"
-        android:text="Complete your Profile"
+        android:text="Complete/Edit Profile"
         android:textColor="#0E0E0E"
         android:textAllCaps="false"
         android:textSize="16sp"

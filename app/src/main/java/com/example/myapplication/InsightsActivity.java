@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class InsightsActivity extends AppCompatActivity implements View.OnClickListener {
-    Button btnInsights1, btnInsights2, btnInsights3, btnInsights4;
+    Button btnInsights1, btnInsights2, btnInsights3, btnInsights4, btnBackToDashboard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +23,13 @@ public class InsightsActivity extends AppCompatActivity implements View.OnClickL
         btnInsights2 = findViewById(R.id.btnInsights2);
         btnInsights3 = findViewById(R.id.btnInsights3);
         btnInsights4 = findViewById(R.id.btnInsights4);
+        btnBackToDashboard = findViewById(R.id.btnBackToDashboard);
 
         btnInsights1.setOnClickListener(this);
         btnInsights2.setOnClickListener(this);
         btnInsights3.setOnClickListener(this);
         btnInsights4.setOnClickListener(this);
+        btnBackToDashboard.setOnClickListener(this);
     }
 
 
@@ -55,6 +57,9 @@ public class InsightsActivity extends AppCompatActivity implements View.OnClickL
                 String url4 = "https://blog.homesalive.ca/dog-blog/indoor-games-for-dogs";
                 intent.setData(Uri.parse(url4));
                 startActivity(intent);
+                break;
+            case R.id.btnBackToDashboard:
+                finish();
                 break;
         }
     }
